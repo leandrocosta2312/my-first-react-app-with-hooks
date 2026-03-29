@@ -1,14 +1,14 @@
 import PageTitle from "@/components/layout/PageTitle"
+import { Space, Typography } from "antd"
 
 export default function NotFound() {
   return (
-    <div className="space-y-2">
+    <Space orientation="vertical" size="middle">
       <PageTitle title="Página não encontrada" />
-      <p className="text-sm text-muted-foreground">
+      <Typography.Text type="secondary">
         Verifique a URL ou use o menu lateral para navegar para uma página
         existente.
-      </p>
-    </div>
+      </Typography.Text>
+    </Space>
   )
 }
-
