@@ -1,50 +1,41 @@
-import { NavLink } from "react-router-dom"
-import { cn } from "@/lib/utils"
+import { useNavigate, useLocation } from "react-router-dom"
+import { Layout, Menu, Typography } from "antd"
 
 const links = [
-  { to: "/", label: "Início" },
-  { to: "/use-state", label: "useState()" },
-  { to: "/use-effect", label: "useEffect()" },
-  { to: "/use-ref", label: "useRef()" },
-  { to: "/use-callback", label: "useCallback()" },
-  { to: "/use-memo", label: "useMemo()" },
-  { to: "/use-context", label: "useContext()" },
-  { to: "/use-reducer", label: "useReducer()" },
-  { to: "/use-custom", label: "useMyHook()" },
+  { key: "/", label: "Início" },
+  { key: "/use-state", label: "useState()" },
+  { key: "/use-effect", label: "useEffect()" },
+  { key: "/use-ref", label: "useRef()" },
+  { key: "/use-callback", label: "useCallback()" },
+  { key: "/use-memo", label: "useMemo()" },
+  { key: "/use-context", label: "useContext()" },
+  { key: "/use-reducer", label: "useReducer()" },
+  { key: "/use-custom", label: "useMyHook()" },
 ]
 
 export function Sidebar() {
+  const navigate = useNavigate()
+  const location = useLocation()
+
   return (
-    <aside className="border-r bg-muted/40">
-      <nav className="flex h-full w-64 flex-col gap-2 p-4 text-sm">
-        <div className="mb-4 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+    <Layout.Sider width={256} theme="light">
+      <div style={{ padding: "16px 16px 0" }}>
+        <Typography.Text
+          strong
+          style={{ fontSize: 12, textTransform: "uppercase", color: "inherit", opacity: 0.65 }}
+        >
           Módulo Hooks
-        </div>
-        <ul className="flex flex-1 flex-col gap-1">
-          {links.map((link) => (
-            <li key={link.to}>
-              <NavLink
-                to={link.to}
-                className={({ isActive }) =>
-                  cn(
-                    "flex items-center rounded-md px-3 py-2 text-sm font-medium transition-colors",
-                    "hover:bg-accent hover:text-accent-foreground",
-                    isActive
-                      ? "bg-accent text-accent-foreground"
-                      : "text-muted-foreground"
-                  )
-                }
-                end={link.to === "/"}
-              >
-                {link.label}
-              </NavLink>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    </aside>
+        </Typography.Text>
+      </div>
+      <Menu
+        mode="inline"
+        selectedKeys={[location.pathname]}
+        items={links}
+        onClick={({ key }: { key: string }) => navigate(key)}
+        style={{ borderRight: 0 }}
+      />
+    </Layout.Sider>
   )
 }
 
 export default Sidebar
-

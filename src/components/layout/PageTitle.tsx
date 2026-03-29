@@ -1,4 +1,7 @@
-import { ReactNode } from "react"
+import type { ReactNode } from "react"
+import { Typography } from "antd"
+
+const { Title, Text } = Typography
 
 type PageTitleProps = {
   title: ReactNode
@@ -7,14 +10,17 @@ type PageTitleProps = {
 
 export function PageTitle({ title, subtitle }: PageTitleProps) {
   return (
-    <header className="mb-6 space-y-1">
-      <h1 className="text-2xl font-semibold tracking-tight">{title}</h1>
+    <div>
+      <Title level={2} style={{ marginBottom: subtitle ? 4 : 24 }}>
+        {title}
+      </Title>
       {subtitle ? (
-        <p className="max-w-2xl text-sm text-muted-foreground">{subtitle}</p>
+        <Text type="secondary" style={{ display: "block", marginBottom: 24 }}>
+          {subtitle}
+        </Text>
       ) : null}
-    </header>
+    </div>
   )
 }
 
 export default PageTitle
-

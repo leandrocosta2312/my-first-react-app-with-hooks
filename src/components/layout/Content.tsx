@@ -13,22 +13,19 @@ import NotFound from "@/views/examples/NotFound"
 
 export function Content() {
   return (
-    <main className="flex-1 overflow-y-auto p-6">
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/use-state" element={<UseStatePage />} />
-        <Route path="/use-effect" element={<UseEffectPage />} />
-        <Route path="/use-ref" element={<UseRefPage />} />
-        <Route path="/use-callback" element={<UseCallbackPage />} />
-        <Route path="/use-memo" element={<UseMemoPage />} />
-        <Route path="/use-context" element={<UseContextPage />} />
-        <Route path="/use-reducer" element={<UseReducerPage />} />
-        <Route path="/use-custom" element={<UseCustomPage />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </main>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/use-state" element={<UseStatePage />} />
+      <Route path="/use-effect" element={<UseEffectPage />} />
+      <Route path="/use-ref" element={<UseRefPage />} />
+      <Route path="/use-callback" element={<UseCallbackPage />} />
+      <Route path="/use-memo" element={<UseMemoPage />} />
+      <Route path="/use-context" element={<UseContextPage />} />
+      <Route path="/use-reducer" element={<UseReducerPage />} />
+      <Route path="/use-custom" element={<UseCustomPage />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   )
 }
 
 export default Content
-

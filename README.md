@@ -1,21 +1,15 @@
-# React + TypeScript + Vite + shadcn/ui
+# React + TypeScript + Vite + Ant Design
 
-This is a template for a new Vite project with React, TypeScript, and shadcn/ui.
+Template de projeto Vite com React, TypeScript e Ant Design.
 
-## Adding components
+## Uso de componentes
 
-To add components to your app, run the following command:
-
-```bash
-npx shadcn@latest add button
-```
-
-This will place the ui components in the `src/components` directory.
-
-## Using components
-
-To use the components in your app, import them as follows:
+Os componentes de UI vêm da biblioteca [Ant Design](https://ant.design/). Importe diretamente:
 
 ```tsx
-import { Button } from "@/components/ui/button"
+import { Button, Card, Input } from "antd"
 ```
+
+## Tema (claro/escuro)
+
+O app usa `ThemeProvider` (tema claro/escuro/sistema) e `ConfigProvider` do Ant Design para aplicar o algoritmo de cores. O tema é sincronizado entre o layout e os componentes Ant Design.
