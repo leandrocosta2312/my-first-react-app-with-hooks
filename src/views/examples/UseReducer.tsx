@@ -1,6 +1,6 @@
 import PageTitle from "@/components/layout/PageTitle"
-import CounterReducer from "@/components/CounterReducer"
-import OrderReducer from "@/components/OrderReducer"
+import CounterReducer from "@/components/reducer/CounterReducer"
+import OrderReducer from "@/components/reducer/OrderReducer"
 import { Divider, Space } from "antd"
 
 export default function UseReducerPage() {
